@@ -1,0 +1,154 @@
+import matplotlib
+import matplotlib.pyplot as plt
+import csv
+
+from matplotlib import pylab
+
+
+FILENAME = ['HARD_0-100-5-100-001-07', 'HARD_1-100-5-100-001-07', 'HARD_2-100-5-100-001-07', 'HARD_3-100-5-100-001-07',
+            'HARD_4-100-5-100-001-07', 'HARD_1-100-10-100-001-07', 'HARD_1-100-25-100-001-07','HARD_1-100-10-100-001-05','HARD_1-100-10-100-001-06',
+            'HARD_1-100-10-100-001-08','HARD_1-100-10-100-001-09','HARD_1-100-10-100-001-10','HARD_1-100-10-100-005-07','HARD_1-100-10-100-010-07',
+            'HARD_1-100-10-100-015-07','HARD_1-100-10-100-020-07','HARD_1-40-10-100-005-07','HARD_1-400-10-100-005-07',
+            'HARD_1-100-popSize-100-005-07','HARD_1-100-1-100-005-07','HARD_1-100-10-100-005-025','HARD_1-100-10-100-05-07']
+for a in FILENAME:
+    with open('D:\STUDIA\Informatyka - wiz SEMESTR 6\ztp\SI\\' + a + '-p.csv', 'r') as csvfile:
+        x = []
+        y = []
+        z = []
+        k = []
+        plots = csv.reader(csvfile, delimiter=',')
+        for row in plots:
+            x.append(float(row[0]))
+            y.append(float(row[1]))
+            z.append(float(row[2]))
+            k.append(float(row[3]))
+
+    plt.plot(x, y, label='Best')
+    plt.plot(x, z, label='Avg')
+    plt.plot(x, k, label='Worst')
+    plt.xlabel('Populacja')
+    plt.ylabel('Fitness')
+    plt.title(a)#+'\nName-PopSize-Tour-Generations-Pn-Px')
+    plt.legend()
+    plt.savefig(a + '.png')
+    plt.show()
+    # pylab.savefig('foo.png')
+
+
+"""
+HARD 0  HARD_0-100-5-100-001-07
+-4625144.0 : BEST
+-4625161.0 : AVG
+-4626844.0 : WORST
+
+
+HARD 1   HARD_1-100-5-100-001-07
+-2068314.0 : BEST
+-2069413.37 : AVG
+-2076449.0 : WORST
+
+HARD 2  HARD_2-100-5-100-001-07
+-1819174.0 : BEST
+-1819359.47 : AVG
+-1837721.0 : WORST
+
+HARD 3  HARD_3-100-5-100-001-07
+-1592820.0 : BEST
+-1594630.24 : AVG
+-1594664.0 : WORST
+
+HARD 4  HARD_4-100-5-100-001-07
+-1577465.0 : BEST
+-1577535.82 : AVG
+-1584522.0 : WORST
+
+HARD_1-100-10-100-001-07    TOUR 10
+-2029319.0 : BEST
+-2037242.05 : AVG
+-2037755.0 : WORST
+
+HARD_1-100-25-100-001-07    TOUR 25
+-2045341.0 : BEST
+-2050801.07 : AVG
+-2052432.0 : WORST
+
+HARD_1-100-10-100-001-05    TOUR 0.5
+-2075990.0 : BEST
+-2076060.53 : AVG
+-2083043.0 : WORST
+
+
+HARD_1-100-10-100-001-06    TOUR 0.6
+-2080990.0 : BEST
+-2085093.25 : AVG
+-2094615.0 : WORST
+
+HARD_1-100-10-100-001-08    TOUR 0.8
+-2045573.0 : BEST
+-2053399.3 : AVG
+-2054199.0 : WORST
+
+HARD_1-100-10-100-001-09    TOUR 0.9
+-2027677.0 : BEST
+-2027843.35 : AVG
+-2044312.0 : WORST
+
+HARD_1-100-10-100-001-10    TOUR 1
+-2021382.0 : BEST
+-2022306.45 : AVG
+-2027916.0 : WORST
+
+HARD_1-100-10-100-005-07    MUTATION 0.05
+-1882247.0 : BEST
+-1884629.86 : AVG
+-1919917.0 : WORST
+
+
+HARD_1-100-10-100-010-07    MUTATION 0.1
+-1758118.0 : BEST
+-1773962.4 : AVG
+-1786471.0 : WORST
+
+
+HARD_1-100-10-100-015-07    MUTATION 0.15
+-1755237.0 : BEST
+-1764872.13 : AVG
+-1780033.0 : WORST
+
+HARD_1-100-10-100-020-07    MUTATION 0.2
+-1652675.0 : BEST
+-1655845.11 : AVG
+-1685569.0 : WORST
+
+
+POPULACJA 40    HARD_1-40-10-100-005-07
+-2047833.0 : BEST
+-2051300.275 : AVG
+-2060649.0 : WORST
+
+
+POPULACJA 400   HARD_1-400-10-100-005-07
+-1728166.0 : BEST
+-1731724.1725 : AVG
+-1745746.0 : WORST
+
+TOURNAMENT = popSize    HARD_1-100-popSize-100-005-07
+-1763138.0 : BEST
+-1771365.86 : AVG
+-1787139.0 : WORST
+
+TOURNAMENT = 1    HARD_1-100-1-100-005-07
+-2344704.0 : BEST
+-2429682.52 : AVG
+-2520658.0 : WORST
+
+Px= -.25, Pn = 0.05 HARD_1-100-10-100-005-025
+-1875018.0 : BEST
+-1886165.05 : AVG
+-1890791.0 : WORST
+
+Px = 0.7 Pn = 0.5   HARD_1-100-10-100-05-07
+-1526984.0 : BEST
+-1540574.97 : AVG
+-1570640.0 : WORST
+"""
